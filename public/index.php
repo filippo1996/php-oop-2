@@ -14,6 +14,7 @@ include_once __DIR__.'/../api/products/data-products.php';
 include_once __DIR__.'/../app/Models/User.php';
 require_once __DIR__.'/../app/Controllers/UserController.php';
 include_once __DIR__.'/../app/Models/CreditCard.php';
+include_once __DIR__.'/../app/Models/Model.php';
 
 
 //$user = new App\Controllers\UserController();

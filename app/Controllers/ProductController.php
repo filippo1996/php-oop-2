@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Product;
 use App\Controllers\UserController;
 use App\Models\CreditCard;
+use Exception;
 
 class ProductController
 {
@@ -19,7 +20,7 @@ class ProductController
         $this->product = new Product($api);
 
         //istanza da rimuovere in questa classe, solo per scopo di test
-        $this->user = new UserController(['username' => 'Filmazza'], true);
+        $this->user = new UserController(['username' => 'Filmazza'], false);
 
         //istanza da rimuovere in questa classe, solo per scopo di test
         $this->user->insertCreditCard(new CreditCard('1233224223', 'Pippo Rossi', '20/2027', '123'));
@@ -32,7 +33,15 @@ class ProductController
 
     public function index()
     {
+        //$products = $this->product->all();
+        /*
+        $product = new Product([1,2,3]);
+        $product->find( 1 );
+        //var_dump( $product );
+        */
+
         //Logica da rimuovere in questa classe, solo per scopo di test
+        $username = '';
         $loginMessage = 'Accesso eseguito correttamente';
         try{
             $username = $this->user->showAccess();
@@ -41,6 +50,7 @@ class ProductController
         }
 
         $products = $this->product->all();
+
         $this->content =  view('product', compact(['products','username','loginMessage']));
     }
 }

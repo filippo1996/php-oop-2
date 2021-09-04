@@ -17,7 +17,7 @@
               <p class="card-text"><?= $product['description'] ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Aggiungi al carrello</button>
+                  <button data-id-product="<?= $product['id'] ?>" data-cart="add" type="button" class="btn btn-sm btn-outline-secondary">Aggiungi al carrello</button>
                 </div>
                 <small class="text-muted">Prezzo <?= $product['price'] ?>€</small>
               </div>

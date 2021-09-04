@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Product
+include_once __DIR__.'/Model.php';
+
+class Product extends Model
 {
     /**
      * Name table db
@@ -25,7 +27,18 @@ class Product
      */
     public function all()
     {
-        return $this->products;
+        $prod = parent::all();
+        return $prod;
+    }
+
+    public function find( $id )
+    {
+        $prod = parent::find( $id );
+
+        if( $prod )
+        {
+            $this->name = strtoupper( $prod['name'] );
+        }
     }
 
     /**
